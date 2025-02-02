@@ -1,6 +1,3 @@
-
-
-
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { marked } from "marked";
 import dotenv from "dotenv";
@@ -20,7 +17,7 @@ export function formatResponse(inputText) {
   formattedText = formattedText.replace(/```(.*?)```/gs, (match, p1) => {
     return `<pre><code class="language-javascript">${p1}</code></pre>`;
   });
-  console.log(10)
+  console.log(10);
   return formattedText;
 }
 
@@ -31,7 +28,7 @@ const threadHistory = new Map();
 
 export async function continueThread(userId, userPrompt) {
   try {
-    console.log(userId +" "+ userPrompt)
+    console.log(userId + " " + userPrompt);
     let threadData = threadHistory.get(userId) || {
       messages: [],
       thread_id: null,
@@ -40,27 +37,25 @@ export async function continueThread(userId, userPrompt) {
     const history = threadData.messages
       .map((msg) => `${msg.role}: ${msg.content}`)
       .join("\n");
-      
-      const prompt = history
+
+    const prompt = history
       ? `${history}\nUser: As a Python tutor, explain this concept in a way that students from grade 4 to 12 can easily understand. Use simple words, real-life examples, and step-by-step explanations.\nUser's Question: ${userPrompt}\nAssistant:`
       : `User: As a Python tutor, explain this concept in a way that students from grade 4 to 12 can easily understand. Use simple words, real-life examples, and step-by-step explanations.\nUser's Question: ${userPrompt}\nAssistant:`;
-    
- 
+
     const result = await model.generateContent(prompt);
-   
+
     const assistantResponse =
       result.response.candidates[0].content.parts[0].text;
-    
+
     threadData.messages.push({ role: "user", content: userPrompt });
     threadData.messages.push({ role: "assistant", content: assistantResponse });
- 
+
     if (threadData.messages.length > 50) {
       threadData.messages = threadData.messages.slice(-50);
-    } 
-    
+    }
 
     threadHistory.set(userId, threadData);
-    
+
     return formatResponse(assistantResponse);
   } catch (error) {
     console.error(`Error processing chat for user ${userId}:`, error.message);

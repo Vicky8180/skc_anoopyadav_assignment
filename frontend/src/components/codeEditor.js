@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import Editor from "@monaco-editor/react";
 import "../styles/codeEditor.css";
@@ -7,13 +6,13 @@ import { useLocation } from "react-router-dom";
 const CodeEditor = () => {
   const location = useLocation();
   const [code, setCode] = useState(
-    location.state?.code || `name = input("Enter your name: ")\nprint("Hello,", name)`
+    location.state?.code ||
+      `name = input("Enter your name: ")\nprint("Hello,", name)`
   );
   const [output, setOutput] = useState("");
   const [pyodide, setPyodide] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Update code when location state changes
   useEffect(() => {
     if (location.state?.code) {
       setCode(location.state.code);
@@ -33,7 +32,9 @@ const CodeEditor = () => {
         setPyodide(window.pyodideInstance);
       } catch (error) {
         console.error("Error loading Pyodide:", error);
-        setOutput("⚠️ Failed to load Pyodide. Please check your internet connection.");
+        setOutput(
+          "⚠️ Failed to load Pyodide. Please check your internet connection."
+        );
       }
       setLoading(false);
     };
@@ -44,7 +45,9 @@ const CodeEditor = () => {
       script.onload = loadPyodide;
       script.onerror = () => {
         console.error("Pyodide failed to load.");
-        setOutput("⚠️ Failed to load Pyodide. Please check your internet connection.");
+        setOutput(
+          "⚠️ Failed to load Pyodide. Please check your internet connection."
+        );
         setLoading(false);
       };
       document.body.appendChild(script);
@@ -68,7 +71,9 @@ const CodeEditor = () => {
         sys.stdout = StringIO()
       `);
 
-      pyodide.globals.set("input", (prompt) => window.prompt(prompt || "Enter input:"));
+      pyodide.globals.set("input", (prompt) =>
+        window.prompt(prompt || "Enter input:")
+      );
 
       await pyodide.runPythonAsync(code);
 

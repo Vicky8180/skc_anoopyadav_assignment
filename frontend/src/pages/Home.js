@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Home.css";
 import Tutor from "./Tutor"
 import CodeEditor from "../components/codeEditor";
+import Homework from "../components/HomeWork";
 const Home = () => {
   const navigate = useNavigate();
 
@@ -22,16 +23,11 @@ const Home = () => {
 
     </div>
 
-{/* <div style={{display:'flex'}}>
-<div style={{width:'45vw'}}>
-<Tutor/>
-</div>
-<div style={{width:'45vw'}}>
-<CodeEditor/>
-</div>
+<div style={{display:'flex'}}>
+<Homework/>
 
 
-</div> */}
+</div>
     </>
 
   );

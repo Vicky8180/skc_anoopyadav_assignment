@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Homework Feature with Gemini AI Integration
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This React app allows you to assign homework to children using Gemini AI and includes interactive features like quizzes. You can customize the AI tutor based on the child’s interests and provide engaging homework assignments.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Dynamic Homework Assignment**: Assign homework based on the child’s subject or lesson.
+- **Customizable AI Tutor**: AI adapts to the child’s learning preferences.
+- **Interactive Homework**: Includes interactive quizzes at the end of homework assignments to enhance learning.
 
-### `npm start`
+## Screenshots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- ![ss](./frontend/src/assets/02.02.2025_22.42.34_REC.png)  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- ![ss](./frontend/src/assets/02.02.2025_22.43.46_REC.png)  
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Before you begin, make sure you have the following installed:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Node.js](https://nodejs.org/) (LTS version)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/) (Node package managers)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `npm run eject`
+### 1. Clone the repository
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+First, clone the repository to your local machine:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+git clone https://github.com/Vicky8180/skc_anoopyadav_assignment
+cd skc_anoopyadav
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Craete .env file in both frontend and backend 
 
-## Learn More
+```
+Frontend .env file,  REACT_APP_BASE_URL_PORT
+Backend .env file, GEMINI_API_KEY ="Your gemini api key"
+                 PORT=5000
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```

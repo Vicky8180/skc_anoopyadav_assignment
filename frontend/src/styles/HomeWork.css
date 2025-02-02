@@ -1,0 +1,56 @@
+.homework-feature {
+    width: 100%;
+    /* max-width: 600px; */
+    margin: auto;
+    text-align: center;
+    width: 70vw;
+  }
+  
+  .homework-feature h2 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+  }
+  
+  input {
+    padding: 10px;
+    width: 70%;
+    margin-right: 10px;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #ddd;
+  }
+  
+  .homework-output {
+    margin-top: 30px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .interactive-section {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tutor-info {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+  }
+  

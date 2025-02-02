@@ -7,16 +7,16 @@ import hljs from "highlight.js";
 import "highlight.js/styles/atom-one-dark.css";
 import { useNavigate } from "react-router-dom";
 
-const CHAT_EXPIRY_TIME = 10 * 60 * 1000; // 10 minutes in milliseconds
+const CHAT_EXPIRY_TIME = 10 * 60 * 1000; 
 
 const Tutor = () => {
   const navigate = useNavigate();
   const chatBoxRef = useRef(null);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);  
 
   useEffect(() => {
-    // Retrieve messages from sessionStorage
     const storedData = sessionStorage.getItem("chatMessages");
     if (storedData) {
       const { messages: storedMessages, timestamp } = JSON.parse(storedData);
@@ -25,7 +25,7 @@ const Tutor = () => {
       if (now - timestamp < CHAT_EXPIRY_TIME) {
         setMessages(storedMessages);
       } else {
-        sessionStorage.removeItem("chatMessages"); // Clear expired messages
+        sessionStorage.removeItem("chatMessages");
       }
     }
   }, []);
@@ -44,16 +44,13 @@ const Tutor = () => {
 
     const newMessages = [...messages, { sender: "user", text: input }];
     setMessages(newMessages);
+    setLoading(true); 
 
-console.log(process.env.REACT_APP_BASE_URL_PORT)
     try {
-
       const res = await axios.post(`${process.env.REACT_APP_BASE_URL_PORT}/api/ai/chat`, {
         message: input,
       });
 
-
-      console.log(res)
       const botMessage = res.data.response;
       setMessages((prev) => [...prev, { sender: "bot", text: botMessage }]);
     } catch {
@@ -61,6 +58,8 @@ console.log(process.env.REACT_APP_BASE_URL_PORT)
         ...prev,
         { sender: "bot", text: "Oops! Something went wrong. Try again!" },
       ]);
+    } finally {
+      setLoading(false);  
     }
 
     setInput("");
@@ -72,12 +71,10 @@ console.log(process.env.REACT_APP_BASE_URL_PORT)
       behavior: "smooth",
     });
 
-    // Highlight code blocks
     document.querySelectorAll("pre code").forEach((block) => {
       hljs.highlightElement(block);
     });
 
-    // Add Copy and Run buttons inside each code block
     document.querySelectorAll("pre").forEach((pre) => {
       if (!pre.querySelector(".copy-btn")) {
         const copyBtn = document.createElement("button");
@@ -124,6 +121,9 @@ console.log(process.env.REACT_APP_BASE_URL_PORT)
           </div>
         ))}
       </div>
+
+  
+      {loading && <div className="loader">Loading...</div>}
 
       <input
         value={input}
