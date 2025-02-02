@@ -1,0 +1,127 @@
+/* .editor-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  button {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .output-container {
+    margin-top: 15px;
+    text-align: left;
+  }
+  
+  pre {
+    background: black;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .error {
+    color: red;
+  }
+   */
+
+
+   /* 🎨 Main Container */
+.editor-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #f0f8ff; /* Soft pastel blue */
+    border-radius: 15px;
+    width: 70vw;
+    height: 90vh;
+    margin: auto;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* 📝 Monaco Editor Styling */
+  .monaco-editor {
+    border-radius: 10px;
+    border: 3px solid #ffcc00; /* Fun yellow border */
+  }
+  
+  /* 🎈 Run Button */
+  button {
+    margin-top: 10px;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #ff6600; /* Playful orange */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #ff4500;
+    transform: scale(1.1);
+  }
+  
+  /* 🎨 Output Section */
+  .output-container {
+    margin-top: 15px;
+    text-align: left;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    border: 3px solid #ffcc00;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    color: red;
+  }
+  
+  /* 🖥️ Code Output */
+  pre {
+    background: #282c34;
+    color: #61dafb; /* Light blue text */
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: "Courier New", Courier, monospace;
+    overflow-x: auto;
+  }
+  
+  /* ❌ Error Messages */
+  .error {
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  /* 🎀 Cute Label for Code Area */
+  .label {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff6600;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  /* 🎯 Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .editor-container,
+  .output-container,
+  button {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
