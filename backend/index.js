@@ -10,7 +10,7 @@ app.use(cors());
 
 const allowedOrigins = [
     "http://localhost:3000",
-  "http://skc-anoopyadav-assignment.vercel.app/"
+  "http://skc-anoopyadav-assignment.vercel.app"
   
   ];
   
